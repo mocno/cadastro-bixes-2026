@@ -8,10 +8,9 @@ ENV PORT=3000 \
 WORKDIR ${APP_PATH}
 
 RUN apk add --update \
-  build-base git bash tzdata libxml2 postgresql-dev gcompat && \
-  gem install nokogiri -v '1.15.5' && \
-  gem install net-imap -v '0.3.7' && \
-  gem install rails
+  build-base git bash tzdata libxml2 postgresql-dev gcompat \
+  && rm -rf /var/cache/apk/*
+
 
 COPY . ./
 
@@ -23,5 +22,6 @@ ENTRYPOINT ["entrypoint.sh"]
 
 EXPOSE ${PORT}
 
-CMD rails server -b ${HOST}
+
+# CMD rails server -b ${HOST}
 # CMD tail -f /dev/null
