@@ -5,7 +5,11 @@ class ModalidadesController < ApplicationController
   # GET /modalidades
   # GET /modalidades.json
   def index
-    @modalidades = Modalidade.all
+    if params[:search].present?
+      @modalidades = Modalidade.where("nome LIKE ?", "%#{params[:search]}%")
+    else  
+      @modalidades = Modalidade.all
+    end
   end
 
   # GET /modalidades/1

@@ -22,6 +22,9 @@
 
     <div class="container">
       <ul class="nav nav-tabs">
+        <% if tutorial_index? %><li class='active'><% else %><li><% end %>
+          <%= link_to 'tutorial', tutorial_path %>
+        </li>
         <% if bixes_index? %><li class='active'><% else %><li><% end %>
           <%= link_to 'bixes', bixes_path %>
         </li>

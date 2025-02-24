@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :confirmacoes, only: %i(create)
     end
   end
-
+  get '/tutorial', to: 'others#tutorial'
   get '/bixes/contatos' => 'bixes#contatos', as: :contatos
   get '/bixes/:id/modalidades' => 'bixes#modalidades', as: :edit_bixe_modalidades
   get '/bixes/:id/items' => 'bixes#items', as: :edit_bixe_items

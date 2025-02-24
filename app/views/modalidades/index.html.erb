@@ -6,6 +6,21 @@
   </div>
 </div>
 
+<!-- Campo de busca -->
+<div class="row">
+  <div class="col-md-6">
+<%= form_with url: modalidades_path, method: :get, local: true do |form| %>
+  <div class="input-group">
+    <%= form.text_field :search, value: params[:search], class: "form-control", placeholder: "Buscar modalidade..." %>
+    <span class="input-group-btn">
+      <%= form.submit "Buscar", class: "btn btn-primary" %>
+    </span>
+  </div>
+<% end %>
+
+  </div>
+</div>
+
 <div class="grid">
   <% @modalidades.each_with_index do |m, i| %>
     <div class="row list-item-<%= i % 2 %>">
