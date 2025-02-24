@@ -25,9 +25,6 @@
           <%= link_to b.nome, bixe_path(b.id) %>
           <%= image_tag "#{b.team}.svg", class: "team-logo" %>
         </div>  
-        <div class="col">
-          <%= button_to "🗑️", confirmacao_path(b.confirmacao.id), method: :delete, data: { confirm: "Tem certeza?" }, id: "deleteBtn"%>
-        </div>
       </div>
     <% end %>
   </div>
