@@ -1,4 +1,8 @@
 <div class="col-md-6">
+  <div>
+  <span>Sincronizar alterações na planilha</span>
+  <%= button_to '🔄 Sincronizar Planilha', :sync_confirmations, method: :post, class: "btn btn-primary", data: { confirm: "Tem certeza que deseja sincronizar?" } %>
+  </div>
   <h1>Bixes não confirmados</h1>
 
   <div class="grid">
@@ -16,10 +20,14 @@
 
   <div class="grid">
     <% @confirmed.each_with_index do |b, i| %>
-      <div class="row team-<%= b.team_color %>">
-        <h4>
+      <div class="row team-<%= b.team %> team-container">
+        <div class="col team-infos">
           <%= link_to b.nome, bixe_path(b.id) %>
-        </h4>
+          <%= image_tag "#{b.team}.svg", class: "team-logo" %>
+        </div>  
+        <div class="col">
+          <%= button_to "🗑️", confirmacao_path(b.confirmacao.id), method: :delete, data: { confirm: "Tem certeza?" }, id: "deleteBtn"%>
+        </div>
       </div>
     <% end %>
   </div>

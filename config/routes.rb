@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/bixes/:id/items' => 'bixes#items', as: :edit_bixe_items
   post '/bixes/:id/modalidades' => 'bixes#modify_modalidades', as: :modify_bixe_modalidades
   post '/bixes/:id/items' => 'bixes#modify_items', as: :modify_bixe_items
+  post '/sync_confirmations' => 'confirmacoes#sync_confirmations', as: :sync_confirmations
 
   get '/modalidades/contatos' => 'modalidades#contatos', as: :contato_modalidades
  
@@ -25,4 +26,5 @@ Rails.application.routes.draw do
   resources :bixes, except: [:edit]
   resources :modalidades
   resources :items
+  resources :confirmacoes, only: %i(destroy)
 end

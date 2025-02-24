@@ -60,32 +60,97 @@
 
 h4 {
   padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  justify-content: space-between;
 }
 
 // Team colors
 
-.team-purple {
-  background: #cd9ce9;
+// .team-purple {
+//   background: #cd9ce9;
+// }
+
+// .team-orange {
+//   background: #f49f3f;
+// }
+
+// .team-green {
+//   background: #a9c831;
+// }
+
+// .team-blue {
+//   background: #35bfdb;
+// }
+
+// .team-brown {
+//   background: #bf8a5d;
+// }
+
+// times baseados nos personagens
+
+.team-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
 }
 
-.team-orange {
-  background: #f49f3f;
+.team-container .col{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
 }
 
-.team-green {
-  background: #a9c831;
+.team-estelar{
+  background-color: #C80655;
 }
 
-.team-blue {
-  background: #35bfdb;
+.team-ravena{
+  background-color: #662694;
 }
 
-.team-brown {
-  background: #bf8a5d;
+.team-robin{
+  background-color: #FF9519;
+}
+
+.team-mutano{
+  background-color: #349234;
+}
+
+.team-ciborgue{
+  background-color: #147494;
 }
 
 .btn {
   color: #fff !important;
+}
+
+#deleteBtn {
+  color: #fff !important;
+  align-self: flex-end;
+}
+
+.team-infos{
+  display: flex;
+  align-items: center;
+  flex-direction: row !important;
+  
+}
+
+.team-infos a{
+  color: #fff;
+  font-weight: bold;
+
+}
+
+.team-logo{
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 20px;
 }
 
 a:hover {

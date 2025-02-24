@@ -11,7 +11,7 @@ class Bixe < ApplicationRecord
 
   enum curso: [:LIC, :PURA, :BCC, :ESTAT, :APLICADA, :BMAC, :LICNOTURNO].freeze
 
-  delegate :team_color, to: :confirmacao
+  delegate :team, to: :confirmacao
 
   def confirmed?
     confirmacao.present?
@@ -20,7 +20,7 @@ class Bixe < ApplicationRecord
   def self.confirmed
     all
       .select { |b| b.confirmed? }
-      .sort_by { |b| [b.team_color] }
+      .sort_by { |b| [b.team] }
   end
 
   def self.non_confirmed
