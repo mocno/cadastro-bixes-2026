@@ -15,13 +15,15 @@
   <h1>Bixos confirmados</h1>
 
   <div class="grid">
-    <% @confirmed.each_with_index do |b, i| %>
-      <div class="row team-<%= b.team %> team-container">
-        <div class="col team-infos">
-          <%= link_to b.nome, bixe_path(b.id) %>
-          <%= image_tag "#{b.team}.svg", class: "team-logo" %>
-        </div>  
-      </div>
+    <% @bixes_by_team.each_with_index do |(team, bixes), i| %>
+      <h2>Time: <%= team %></h2>
+      <% bixes.each_with_index do |b, i| %>
+        <div class="row team-<%= b.team %> team-container">
+            <div class="col team-infos">
+            <%= link_to "#{b.nome}", bixe_path(b.id) %>
+            </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

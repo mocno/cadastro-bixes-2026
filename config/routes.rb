@@ -16,10 +16,9 @@ Rails.application.routes.draw do
   get '/bixes/:id/items' => 'bixes#items', as: :edit_bixe_items
   post '/bixes/:id/modalidades' => 'bixes#modify_modalidades', as: :modify_bixe_modalidades
   post '/bixes/:id/items' => 'bixes#modify_items', as: :modify_bixe_items
-  post '/sync_confirmations' => 'confirmacoes#sync_confirmations', as: :sync_confirmations
 
   get '/modalidades/contatos' => 'modalidades#contatos', as: :contato_modalidades
- 
+
   get '/items/:id/bixes' => 'items#bixes', as: :edit_item_bixes
   get '/items/contatos' => 'items#contatos', as: :contato_items
   get '/items/planilha' => 'items#planilha', as: :planilha_items

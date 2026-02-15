@@ -1,7 +1,7 @@
 class Confirmacao < ApplicationRecord
   belongs_to :bixe
 
-  TEAMS = [:RAVENA, :MUTANO, :CIBORGUE, :ROBIN, :ESTELAR].freeze
+  TEAMS = [:FANTASMA, :BALAO, :BANANA, :AMENDOIM, :NUVEM].freeze
 
   def self.assign_team
     team_counts = TEAMS.map do | time | 

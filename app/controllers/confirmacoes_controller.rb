@@ -10,16 +10,9 @@ class ConfirmacoesController < ApplicationController
   def create
     bixe = Bixe.find(params[:id])
     Confirmacao.create(bixe_id: params[:id]) if Bixe.find(params[:id])
-    GoogleSheetsService.new.add_confirmation(bixe)
     redirect_to confirmacoes_path, notice: 'Bixe confirmado'
   rescue ActiveRecord::RecordNotFound => exception
     redirect_to confirmacoes_path, alert: exception.message
-  end
-
-  def sync_confirmations
-    Confirmacao.find_each do |confirmacao|
-      GoogleSheetsService.new.add_confirmation(confirmacao.bixe)
-    end
   end
 
   def destroy
