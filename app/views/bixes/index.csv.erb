@@ -1,0 +1,4 @@
+id;nome;email;telefone;curso;time
+<% @bixes.each_with_index do |b, i| %>
+<%= b.id %>; <%= b.nome %>; <%= b.email %>; <%= b.telefone %>; <%= b.curso %>; <%= b.confirmed? ? b.confirmacao.team.titleize : "" %>
+<% end %>

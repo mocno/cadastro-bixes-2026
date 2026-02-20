@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
-  root to: 'bixes#index'
+  root to: 'others#tutorial'
   resources :bixes, only: [] do
     collection do
-      resources :confirmacoes, only: %i(index)
-      get :emails
+      resources :confirmacoes, only: :index
     end
 
     member do
-      resources :confirmacoes, only: %i(create)
+      resources :confirmacoes, only: :create, as: :create_confirmacoes
+      delete 'confirmacoes', to: 'confirmacoes#destroy', as: :destroy_confirmacoes
     end
   end
   get '/tutorial', to: 'others#tutorial'
-  get '/bixes/contatos' => 'bixes#contatos', as: :contatos
 
-  resources :bixes, except: [:edit]
-  resources :confirmacoes, only: %i(destroy)
+  resources :bixes
 end

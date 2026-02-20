@@ -5,22 +5,22 @@
     <% @non_confirmed.each_with_index do |b, i| %>
       <div class="row list-item-<%= i % 2 %>">
         <h4>
-          <%= button_to b.nome, "/bixes/#{b.id}/confirmacoes", method: :post %>
+          <%= link_to "#{b.nome} (Nº#{b.id})", bixe_path(b) %>
         </h4>
       </div>
     <% end %>
   </div>
 </div>
 <div class="col-md-6">
-  <h1>Bixos confirmados</h1>
+  <h1>Bixes confirmados</h1>
 
   <div class="grid">
     <% @bixes_by_team.each_with_index do |(team, bixes), i| %>
-      <h2>Time: <%= team %></h2>
+      <h2 class="row">Time: <%= team.titleize %></h2>
       <% bixes.each_with_index do |b, i| %>
         <div class="row team-<%= b.team %> team-container">
             <div class="col team-infos">
-            <%= link_to "#{b.nome}", bixe_path(b.id) %>
+            <%= link_to "#{b.nome} (Nº#{b.id})", bixe_path(b), class: "team-#{b.team}" %>
             </div>
         </div>
       <% end %>

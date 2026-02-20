@@ -17,154 +17,110 @@
 @import "bootstrap";
 
 :root {
-  --sports-red: #f00;
-  --sports-white: #ddd;
-  --light-red-bg: #fee;
-  --light-blue-bg: #eef;
+    --banner-bg: #f282b4;
+    --banner-cl: #ffffff;
+    --list-color-0: #eee;
+    --list-color-1: #fff;
 }
 
 .btn-wide {
-  width: 100%;
+    width: 100%;
 }
 
 .lil-top-margin {
-  margin-top: 25px;
+    margin-top: 25px;
 }
 
 .grid {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .banner {
-  background: var(--sports-red);
-  padding: 20px;
-  color: var(--sports-white);
-  margin-bottom: 30px;
+    background: var(--banner-bg);
+    padding: 20px;
+    color: var(--banner-cl);
+    margin-bottom: 30px;
 }
 
 [class*="list-item-"]:not(:first-of-type) {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 [class*="col-"] {
-  display: block;
+    display: block;
 }
 
 .list-item-0 {
-  background: var(--light-red-bg);
+    background: var(--list-color-0);
 }
 
 .list-item-1 {
-  background: var(--light-blue-bg);
+    background: var(--list-color-1);
 }
 
-h4 {
-  padding-left: 5%;
-  padding-right: 5%;
-  display: flex;
-  justify-content: space-between;
+.team-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
 }
 
-// Team colors
-
-// .team-purple {
-//   background: #cd9ce9;
-// }
-
-// .team-orange {
-//   background: #f49f3f;
-// }
-
-// .team-green {
-//   background: #a9c831;
-// }
-
-// .team-blue {
-//   background: #35bfdb;
-// }
-
-// .team-brown {
-//   background: #bf8a5d;
-// }
-
-// times baseados nos personagens
-
-.team-container{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px;
+.team-container .col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
-
-.team-container .col{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-}
-
 
 .team-fantasma {
-    background-color: #C83286;
+    color: #fff !important;
+    background-color: #c83286;
 }
 .team-balao {
+    color: #fff !important;
     background-color: #66b6c0;
 }
 .team-banana {
-    background-color: #FCE100;
+    color: #000 !important;
+    background-color: #fce100;
 }
 .team-amendoim {
+    color: #fff !important;
     background-color: #ff741f;
 }
 .team-nuvem {
-  background-color: #cecece;
+    color: #000 !important;
+    background-color: #cecece;
 }
 
 .btn {
-  color: #fff !important;
+    color: #fff !important;
 }
 
-#deleteBtn {
-  color: #fff !important;
-  align-self: flex-end;
+.team-infos {
+    display: flex;
+    align-items: center;
+    flex-direction: row !important;
 }
 
-.team-infos{
-  display: flex;
-  align-items: center;
-  flex-direction: row !important;
-  
-}
-
-.team-infos a{
-  color: #fff;
-  font-weight: bold;
-
-}
-
-.team-logo{
-  margin-left: 10px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 20px;
+.team-infos a {
+    font-weight: bold;
 }
 
 a:hover {
-  background: none;
-  text-decoration: none;
+    background: none;
+    text-decoration: none;
 }
 
 input {
-  width: 100%;
+    width: 100%;
 }
 
 button {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }

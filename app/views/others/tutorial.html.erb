@@ -1,58 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial de Cadastro e Confirmação</title>
-    <style>
-        
-        h1, h2 {
-            color: #333;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Cadastro e Confirmação de Bixes</h1>
+<h1>Cadastro e Confirmação de Bixes</h1>
 
-        <h2>1. Cadastro de Bixes</h2>
-        <p>A ferramenta permite o cadastro de bixos de forma simples, registrando as seguintes informações:</p>
-        <ul>
-            <li><strong>Nome</strong></li>
-            <li><strong>E-mail</strong></li>
-        </ul>
-        <p>Para cadastrar um novo bixe, siga os passos abaixo:</p>
-        <ol>
-            <li>Acesse: <a href="http://15.229.70.89:3000/bixes" target="_blank">http://15.229.70.89:3000/bixes</a></li>
-            <li>Clique no botão <strong>"Novo Bixe"</strong></li>
-            <li>Preencha as informações necessárias</li>
-        </ol>
-        <p>Após concluir essas etapas, o bixe estará cadastrado no sistema.</p>
+<h2>Criar Bixe no sistema</h2>
+<p>A ferramenta permite o cadastro de bixes de forma simples, registrando as seguintes informações:</p>
+<ul>
+    <li><strong>Nome</strong></li>
+    <li><strong>Email</strong></li>
+    <li><strong>Telefone</strong></li>
+    <li><strong>Curso</strong></li>
+</ul>
+<p>Para cadastrar um novo bixe, siga os passos abaixo:</p>
+<ol>
+  <li>Acesse: <%= link_to "\"bixes\"", bixes_path %></li>
+    <li>Clique no botão <strong>"Novo Bixe"</strong>;</li>
+    <li>Preencha as informações necessárias.</li>
+    <li>Clique em <strong>"Cadastrar"</strong>;</li>
+</ol>
+<p>Após concluir essas etapas, o bixe estará cadastrado no sistema.</p>
 
-        <h2>2. Confirmação de Bixes</h2>
-        <p>Após o cadastro, é necessário confirmar o bixe. Esse processo atribuirá automaticamente um time a ele. Para confirmar um bixe:</p>
-        <ol>
-            <li>Acesse: <a href="http://15.229.70.89:3000/bixes/confirmacoes" target="_blank">http://15.229.70.89:3000/confirmacoes</a></li>
-            <li>Na coluna esquerda, veja a lista de bixos que ainda não foram confirmados</li>
-            <li>Clique no nome de cada bixe para confirmar sua participação</li>
-        </ol>
-        <p>Assim que a confirmação for feita, o bixe será automaticamente adicionado à planilha na aba correspondente ao seu time.</p>
-
-        <h3>📄 Planilha de Bixes Confirmados:</h3>
-        <p><a href="https://docs.google.com/spreadsheets/d/1Sb4ZHPPmunvUPAut8GJCxCnhstQ92CQq40hryNROCNM/edit?gid=0" target="_blank">Acesse a planilha</a></p>
-    </div>
-</body>
-</html>
+<h2>Confirmar Bixe no sistema</h2>
+<p>Após o cadastro, com o bixe já criado no sistema, é necessário confirmar o bixe. Esse processo atribuirá automaticamente um time a ele. Para confirmar um bixe:</p>
+<ol>
+    <li>Acesse: <%= link_to "\"Confirmações\"", confirmacoes_path %></li>
+    <li>Na coluna esquerda, veja a lista de bixes que ainda não foram confirmados;</li>
+    <li>Clique no nome de bixe que deseja confirmar</li>
+    <li>Clique no botão de <strong>"Confirmar"</strong></li>
+</ol>
+<p>Assim, magicamente, o bixe ganhará um time e agora é abraços.</p>

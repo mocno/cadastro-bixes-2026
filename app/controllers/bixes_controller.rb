@@ -1,41 +1,25 @@
 class BixesController < ApplicationController
-  before_action :set_bixe, only: [:show, :edit, :update, :destroy]
+  before_action :set_bixe, only: %i[show edit update destroy]
 
-  http_basic_authenticate_with name: ENV['ADMIN_USER'], password: ENV['ADMIN_PASSWORD'], only: [:emails]
+  http_basic_authenticate_with name: ENV['ADMIN_USER'], password: ENV['ADMIN_PASSWORD']
 
   # GET /bixes
-  # GET /bixes.json
   def index
     @bixes = Bixe.all
   end
 
-  # GET /bixes/emails
-  # GET /bixes/emails.json
-  def emails
-    @emails = Bixe.all.map(&:email).uniq
-  end
+  # GET /bixes/:id
+  def show; end
 
-  # GET /bixes/1
-  # GET /bixes/1.json
-  def show
-  end
-
-  # GET /bixos/new
+  # GET /bixes/new
   def new
     @bixe = Bixe.new
   end
 
-  # GET /bixos/1/edit
-  def edit
-  end
+  # GET /bixes/1/edit
+  def edit; end
 
-  # GET /bixos/contatos
-  def contatos
-    @bixes = Bixe.all
-  end
-
-  # POST /bixos
-  # POST /bixos.json
+  # POST /bixes
   def create
     @bixe = Bixe.new(bixe_params)
 
@@ -50,12 +34,11 @@ class BixesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /bixos/1
-  # PATCH/PUT /bixos/1.json
+  # PATCH/PUT /bixes/1
   def update
     respond_to do |format|
       if @bixe.update(bixe_params)
-        format.html { redirect_to @bixe, notice: 'bixe atualizado com sucesso' }
+        format.html { redirect_to @bixe, notice: 'Bixe atualizado com sucesso' }
         format.json { render :show, status: :ok, location: @bixe }
       else
         format.html { render :edit }
@@ -64,8 +47,7 @@ class BixesController < ApplicationController
     end
   end
 
-  # DELETE /bixos/1
-  # DELETE /bixos/1.json
+  # DELETE /bixes/1
   def destroy
     @bixe.destroy
     respond_to do |format|
@@ -75,14 +57,13 @@ class BixesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bixe
-      @bixe = Bixe.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def bixe_params
-      params[:bixe][:curso] = params[:bixe][:curso].to_i
-      params.require(:bixe).permit(:nome, :email, :telefone, :curso)
-    end
+  def set_bixe
+    @bixe = Bixe.find(params[:id])
+  end
+
+  def bixe_params
+    params[:bixe][:curso] = params[:bixe][:curso].to_i
+    params.require(:bixe).permit(:nome, :email, :telefone, :curso)
+  end
 end

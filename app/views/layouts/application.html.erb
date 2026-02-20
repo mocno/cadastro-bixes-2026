@@ -13,27 +13,27 @@
     <div class="banner">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <%= link_to root_path, style: 'color: #fff' do %>
-            <h1>Pre-cadastro dos bixes</h1>
+          <%= link_to tutorial_path, style: 'color: #fff' do %>
+            <h1>Cadastro dos Bixes</h1>
           <% end %>
         </div>
       </div>
     </div>
 
     <div class="container">
+      <%= flash_messages %>
+
       <ul class="nav nav-tabs">
-        <% if tutorial_index? %><li class='active'><% else %><li><% end %>
+        <li<% if tutorial_index? %> class='active'<% end %>>
           <%= link_to 'tutorial', tutorial_path %>
         </li>
-        <% if bixes_index? %><li class='active'><% else %><li><% end %>
+        <li<% if bixes_index? %> class='active'<% end %>>
           <%= link_to 'bixes', bixes_path %>
         </li>
-        <% if confirmacoes_index? %><li class='active'><% else %><li><% end %>
+        <li<% if confirmacoes_index? %> class='active'<% end %>>
           <%= link_to 'confirmações', confirmacoes_path %>
         </li>
       </ul>
-
-      <%= flash_messages %>
 
       <%= yield %>
     </div>
