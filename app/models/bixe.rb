@@ -4,7 +4,6 @@ class Bixe < ApplicationRecord
   validates :email, presence: true
   validates :curso, presence: true
 
-  has_and_belongs_to_many :modalidades
   has_many :bixe_items
   has_many :items, through: :bixe_items
   has_one :confirmacao

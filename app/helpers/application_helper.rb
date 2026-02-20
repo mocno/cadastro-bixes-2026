@@ -5,9 +5,9 @@ module ApplicationHelper
 
   def flash_messages(opts = {})
     flash.each do |msg_type, message|
-      concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in") do 
+      concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in") do
               concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
-              concat message 
+              concat message
             end)
     end
     nil
@@ -21,15 +21,11 @@ module ApplicationHelper
     params[:controller] == "confirmacoes" and params[:action] == "index"
   end
 
-  def modalidades_index?
-    params[:controller] == "modalidades" and params[:action] == "index"
-  end
-
   def items_index?
     params[:controller] == "items" and params[:action] == "index"
   end
 
   def tutorial_index?
     params[:controller] == "others" and params[:action] == "tutorial"
-  end 
+  end
 end

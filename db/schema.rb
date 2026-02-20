@@ -43,15 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_23_195107) do
     t.index ["item_id"], name: "index_bixes_items_on_item_id"
   end
 
-  create_table "bixes_modalidades", force: :cascade do |t|
-    t.bigint "bixe_id", null: false
-    t.bigint "modalidade_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["bixe_id"], name: "index_bixes_modalidades_on_bixe_id"
-    t.index ["modalidade_id"], name: "index_bixes_modalidades_on_modalidade_id"
-  end
-
   create_table "confirmacoes", force: :cascade do |t|
     t.bigint "bixe_id", null: false
     t.datetime "created_at", null: false
@@ -69,17 +60,9 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_23_195107) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "modalidades", force: :cascade do |t|
-    t.string "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   add_foreign_key "bixe_items", "bixes"
   add_foreign_key "bixe_items", "items"
   add_foreign_key "bixes_items", "bixes"
   add_foreign_key "bixes_items", "items"
-  add_foreign_key "bixes_modalidades", "bixes"
-  add_foreign_key "bixes_modalidades", "modalidades"
   add_foreign_key "confirmacoes", "bixes"
 end
