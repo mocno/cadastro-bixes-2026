@@ -1,5 +1,5 @@
 class BixesController < ApplicationController
-  before_action :set_bixe, only: [:show, :edit, :update, :destroy, :items, :modify_items]
+  before_action :set_bixe, only: [:show, :edit, :update, :destroy]
 
   http_basic_authenticate_with name: ENV['ADMIN_USER'], password: ENV['ADMIN_PASSWORD'], only: [:emails]
 
@@ -29,48 +29,9 @@ class BixesController < ApplicationController
   def edit
   end
 
-  # GET /bixos/1/items
-  def items
-    @quantities = {}
-    @bixe.bixe_items.each do |i|
-      @quantities[i.item_id] = i.quantity
-    end
-  end
-
-
   # GET /bixos/contatos
   def contatos
     @bixes = Bixe.all
-  end
-
-  # POST /bixos/1/items
-  def modify_items
-    items_params.each do |item_id, quantity|
-      bixe_item = @bixe.bixe_items.find_or_create_by(item_id: item_id)
-      if quantity.to_i > 0
-        already_bought = BixeItem.where(item_id: item_id).map(&:quantity).sum - bixe_item.quantity
-        item = Item.find(item_id)
-        if quantity.to_i > item.quantidade - already_bought
-          flash[:error] = "Não há quantidade suficiente do item #{item.nome} em estoque"
-          redirect_to action: "items", id: @bixe.id and return
-        end
-
-        bixe_item.quantity = quantity
-        bixe_item.save
-      else
-        bixe_item.destroy
-      end
-    end
-
-    respond_to do |format|
-      if @bixe.save
-        format.html { redirect_to @bixe, notice: 'Itens modificados com sucesso!' }
-        format.json { render :show, status: :created, location: @bixe }
-      else
-        format.html { flash[:error] = 'Deu caca em alguma coisa'; render :new }
-        format.json { render json: @bixe.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # POST /bixos
@@ -123,13 +84,5 @@ class BixesController < ApplicationController
     def bixe_params
       params[:bixe][:curso] = params[:bixe][:curso].to_i
       params.require(:bixe).permit(:nome, :email, :telefone, :curso)
-    end
-
-    def items_params
-      if params[:items].nil? or params[:items].empty?
-        params[:items] = {}
-      else
-        params.require(:items).permit!
-      end
     end
 end

@@ -21,10 +21,6 @@ module ApplicationHelper
     params[:controller] == "confirmacoes" and params[:action] == "index"
   end
 
-  def items_index?
-    params[:controller] == "items" and params[:action] == "index"
-  end
-
   def tutorial_index?
     params[:controller] == "others" and params[:action] == "tutorial"
   end
