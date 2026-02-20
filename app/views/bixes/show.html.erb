@@ -11,15 +11,23 @@
     </div>
     <div>
       <h4>Email</h4>
-      <span><%= @bixe.email %></span>
+      <span><%= @bixe.email.present? ? @bixe.email : 'Não informado' %></span>
     </div>
     <div>
       <h4>Telefone</h4>
-      <span><%= @bixe.telefone %></span>
+      <span><%= @bixe.telefone.present? ? @bixe.telefone : 'Não informado' %></span>
     </div>
     <div>
       <h4>Curso</h4>
       <span><%= @bixe.curso %></span>
+    </div>
+    <div>
+      <h4>Contatos de Emergencia</h4>
+      <span><%= @bixe.emergency_contacts.present? ? @bixe.emergency_contacts : 'Não informado' %></span>
+    </div>
+    <div>
+      <h4>Sensibilidades e Alergias</h4>
+      <span><%= @bixe.sensitivities.present? ? @bixe.sensitivities : 'Não informado' %></span>
     </div>
     <div>
       <h4>Equipe</h4>

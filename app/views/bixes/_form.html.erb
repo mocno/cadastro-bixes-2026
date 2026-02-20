@@ -19,9 +19,20 @@
         <%= form.label "Telefone" %>
         <%= form.text_field :telefone, id: :bixe_telefone %>
       </div>
+      <p>
+          Os próximos campos são informações de emergecia, esses dados só serão usados em caso de emergência. Busque preencher os campos abaixo principalmente para bixes menores de idade.
+      </p>
       <div class="field">
-        <%= form.label "Curso" %><br>
-        <%= form.collection_select :curso, Bixe.cursos, :last, :first, {}, { class: 'btn-wide' } %>
+        <%= form.label "Contatos de Emergencia" %><br>
+        <p>
+            Escreva o "nome do contato" de emergência.<br>
+            Por exemplo: "Mãe: 11 95432-1234; Tio: 12 1222-1222"
+        </p>
+        <%= form.text_field :emergency_contacts, id: :bixe_emergency_contacts %>
+      </div>
+      <div class="field">
+        <%= form.label "Sensibilidades e Alergias" %><br>
+        <%= form.text_field :sensitivities, id: :bixe_sensitivities %>
       </div>
     </div>
   </div>
