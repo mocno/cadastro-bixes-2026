@@ -9,16 +9,11 @@ services:
       - .env
     depends_on:
       - postgres
-    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0"
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -e production -p 3000 -b 0.0.0.0"
+
   postgres:
     image: postgres
+    restart: always
     ports:
       - 5432:5432
     env_file:
       - .env
-    volumes:
-      - data:/var/lib/postgresql/data
-
-volumes:
-  data:

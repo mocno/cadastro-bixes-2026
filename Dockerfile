@@ -1,16 +1,12 @@
 FROM ruby:2.7.1-alpine
 
-ENV PORT=3000 \
-  APP_PATH=/usr/src/app \
-  HOST=0.0.0.0 \
-  RAILS_ENV=development
+ENV APP_PATH=/usr/src/app
 
 WORKDIR ${APP_PATH}
 
 RUN apk add --update \
-  build-base git bash tzdata libxml2 postgresql-dev gcompat \
-  && rm -rf /var/cache/apk/*
-
+    build-base git bash tzdata libxml2 postgresql-dev gcompat \
+    && rm -rf /var/cache/apk/*
 
 COPY . ./
 
@@ -20,8 +16,6 @@ COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
+CMD bundle exec rails server
+
 EXPOSE ${PORT}
-
-
-# CMD rails server -b ${HOST}
-# CMD tail -f /dev/null
