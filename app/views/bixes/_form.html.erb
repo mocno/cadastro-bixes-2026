@@ -8,22 +8,26 @@
         </div>
       <% end %>
       <div class="field">
-        <%= form.label "Nome" %>
+        <%= form.label :nome, "Nome" %>
         <%= form.text_field :nome, id: :bixe_nome, autofocus: true %>
       </div>
       <div class="field">
-        <%= form.label "Email" %>
+        <%= form.label :email, "Email" %>
         <%= form.text_field :email, id: :bixe_email %>
       </div>
       <div class="field">
-        <%= form.label "Telefone" %>
+        <%= form.label :telefone, "Telefone" %>
         <%= form.text_field :telefone, id: :bixe_telefone %>
+      </div>
+      <div class="field">
+        <%= form.label :curso, "Curso" %><br>
+        <%= form.collection_select :curso, Bixe.cursos, :last, :first, { prompt: true, selected: (form.object.new_record? ? 0 : @bixe.curso_before_type_cast) }, { class: 'btn-wide', id: :bixe_curso } %>
       </div>
       <p>
           Os próximos campos são informações de emergecia, esses dados só serão usados em caso de emergência. Busque preencher os campos abaixo principalmente para bixes menores de idade.
       </p>
       <div class="field">
-        <%= form.label "Contatos de Emergencia" %><br>
+        <%= form.label :emergency_contats, "Contatos de Emergencia" %><br>
         <p>
             Escreva o "nome do contato" de emergência.<br>
             Por exemplo: "Mãe: 11 95432-1234; Tio: 12 1222-1222"
@@ -31,7 +35,7 @@
         <%= form.text_field :emergency_contacts, id: :bixe_emergency_contacts %>
       </div>
       <div class="field">
-        <%= form.label "Sensibilidades e Alergias" %><br>
+        <%= form.label :sensitivities, "Sensibilidades e Alergias" %><br>
         <%= form.text_field :sensitivities, id: :bixe_sensitivities %>
       </div>
     </div>
