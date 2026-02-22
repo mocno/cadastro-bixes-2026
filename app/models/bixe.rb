@@ -4,7 +4,15 @@ class Bixe < ApplicationRecord
 
   has_one :confirmacao
 
-  enum curso: %i[LIC PURA BCC ESTAT APLICADA BMAC LICNOTURNO].freeze
+  enum curso: {
+    "Licenciatura Matutuno" => 0,
+    "Matemárica Pura" => 1,
+    "Ciência da Computação - BCC" => 2,
+    "Estatística" => 3,
+    "Matemática Aplicada" => 4,
+    "Matemática Aplicada e Computacional - BMAC" => 5,
+    "Licenciatura Noturno" => 6
+  }
 
   delegate :team, to: :confirmacao
 
