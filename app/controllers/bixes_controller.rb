@@ -69,6 +69,6 @@ class BixesController < ApplicationController
 
   def bixe_params
     params[:bixe][:curso] = params[:bixe][:curso].to_i
-    params.require(:bixe).permit(:nome, :email, :telefone, :curso)
+    params.require(:bixe).permit(:nome, :email, :telefone, :curso, :emergency_contacts, :sensitivities)
   end
 end
