@@ -17,6 +17,8 @@
       <th scope="col">Telefone</th>
       <th scope="col">Curso</th>
       <th scope="col">Time</th>
+      <th scope="col">Con. Emerg.</th>
+      <th scope="col">Alerg.</th>
     </tr>
   </thead>
   <tbody>
@@ -38,7 +40,8 @@
           </div>
         <% end %>
       </td>
-
+      <td><%= b.emergency_contacts %></td>
+      <td><%= b.sensitivities %></td>
     </tr>
   <% end %>
   </tbody>
