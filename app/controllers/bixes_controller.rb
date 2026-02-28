@@ -11,6 +11,11 @@ class BixesController < ApplicationController
   # GET /bixes/:id
   def show; end
 
+  # GET /bixes/emails
+  def emails
+    @emails = Bixe.all.map(&:email).uniq
+  end
+
   # GET /bixes/new
   def new
     @bixe = Bixe.new

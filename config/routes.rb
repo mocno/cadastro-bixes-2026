@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
   get '/tutorial', to: 'others#tutorial'
+  get '/bixes/emails', to: 'bixes#emails'
 
   resources :bixes
 end

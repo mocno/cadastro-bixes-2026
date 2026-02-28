@@ -12,3 +12,9 @@ Para rodar o sistema, siga os passos abaixo:
 2. Entre no diretório do projeto usando o comando `cd cadastro-bixes`.
 3. Copie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente necessárias.
 4. Use docker-compose para executar o sistema com um simples `docker-compose up`.
+
+# Recomendações para produção
+
+Se deseja colocar o sistema de cadastro no ar para a sua semana de recepção, aqui há algumas recomendações:
+- Atualize as páginas `app/models/confirmacao.rb` e `app/assets/stylesheets/application.scss` para atualizar os times e suas cores.
+- Use a lista do caça (a lista dos que passaram na FUVEST e ENEM USP, por exemplo) para popular a lista base de nome dos bixes.
