@@ -5,8 +5,8 @@ class Bixe < ApplicationRecord
   has_one :confirmacao
 
   enum curso: {
-    "Licenciatura Matutuno" => 0,
-    "Matemárica Pura" => 1,
+    "Licenciatura Matutino" => 0,
+    "Matemática Pura" => 1,
     "Ciência da Computação - BCC" => 2,
     "Estatística" => 3,
     "Matemática Aplicada" => 4,
