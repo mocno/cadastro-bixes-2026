@@ -23,7 +23,7 @@ class Bixe < ApplicationRecord
   def self.confirmed
     all
       .select(&:confirmed?)
-      .sort_by(&:team)
+      .sort_by(&:nome)
   end
 
   def self.non_confirmed

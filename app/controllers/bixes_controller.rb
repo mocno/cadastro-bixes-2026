@@ -5,7 +5,7 @@ class BixesController < ApplicationController
 
   # GET /bixes
   def index
-    @bixes = Bixe.all
+    @bixes = Bixe.order(:nome)
   end
 
   # GET /bixes/:id
